@@ -20,6 +20,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    //todo: @Transactional(READONLY) ?? нужно разобраться для каких методов
     public List<User> getAll() {
         return userDao.getAll();
     }
@@ -32,7 +33,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void removeById(long id) {
         userDao.removeById(id);
-    }
+    }//todo: long id - переходим на ссылочные (везде ..по всему коду)
 
     @Override
     public User getById(long id) {

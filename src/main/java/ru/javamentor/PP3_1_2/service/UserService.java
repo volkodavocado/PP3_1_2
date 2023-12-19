@@ -6,6 +6,7 @@ import ru.javamentor.PP3_1_2.model.User;
 import java.util.List;
 
 public interface UserService {
+
     List<User> getAll();
 
     void save(User user);
