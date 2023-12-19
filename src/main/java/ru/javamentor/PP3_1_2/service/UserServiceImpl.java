@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    //todo: @Transactional(READONLY) ?? нужно разобраться для каких методов
+    @Transactional(readOnly = true)
     public List<User> getAll() {
         return userDao.getAll();
     }
@@ -31,17 +31,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void removeById(long id) {
+    public void removeById(Long id) {
         userDao.removeById(id);
-    }//todo: long id - переходим на ссылочные (везде ..по всему коду)
+    }
 
     @Override
-    public User getById(long id) {
+    @Transactional(readOnly = true)
+    public User getById(Long id) {
         return userDao.getById(id);
     }
 
     @Override
-    public void update(User user, long id) {
+    public void update(User user, Long id) {
         userDao.update(user, id);
     }
 }

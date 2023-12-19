@@ -37,19 +37,19 @@ public class UserController {
     }
 
     @PostMapping("/delete")
-    public String remove(@RequestParam("id") long id) {
+    public String remove(@RequestParam("id") Long id) {
         service.removeById(id);
         return "redirect:/";
     }
 
     @GetMapping("/edit")
-    public String printEditForm(@RequestParam("id") long id, Model model) {
+    public String printEditForm(@RequestParam("id") Long id, Model model) {
         model.addAttribute("user", service.getById(id));
         return "spring-mvc-app/edit";
     }
 
     @PostMapping("/edit")
-    public String edit(@ModelAttribute("user") User user, @RequestParam("id") long id) {
+    public String edit(@ModelAttribute("user") User user, @RequestParam("id") Long id) {
         service.update(user, id);
         return "redirect:/";
     }
